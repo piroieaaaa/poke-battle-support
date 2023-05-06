@@ -1,10 +1,10 @@
 import useSWR from 'swr'
 import { fetcher } from './fetcher'
 
-export const usePokeNameSwr = (nameElement :string) => {
-    const {data, error, isLoading} = useSWR(`/api/poke-name?nameElement=${nameElement}`, fetcher)
+export const usePokeNameSwr = (searchKey :string) => {
+    const {data, error, isLoading} = useSWR(`/api/poke-name?searchKey=${searchKey}`, fetcher)
     return {
-        data,
+        pokeNames: data,
         isLoading: isLoading,
         isError: error
     }
