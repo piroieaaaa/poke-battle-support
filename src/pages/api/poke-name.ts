@@ -7,21 +7,20 @@ import * as path from 'path'
 const getPokeNames = async (req:NextApiRequest, res:NextApiResponse) => {
     // 名前の要素が未指定の場合、検索しない
     if (!req.query.searchKey) {
-        console.log('Returns empty if no search key is specified');
         res.json([])
         return;
     }
 
     // DB接続
-    const sqlitePath : string = path.join(process.cwd(), 'src', 'db', 'poke.db')
+    const sqlitePath: string = path.join(process.cwd(), 'src', 'db', 'poke.db')
     const db = await open(
         {filename: sqlitePath,
         driver: sqlite3.Database}
     );
 
     // 名前取得
-    const names = await db.all('select NAME_JP from POKE where NAME_JP like ? || "%"',[req.query.searchKey]);
-    res.json(names.map((name: any) => (name.NAME_JP)));
+    const names = await db.all('select NAME_JP from POKE where NAME_JP like ? || "%" order by NO',[req.query.searchKey]);
+    res.json(names.map((name: any) => String(name.NAME_JP)));
 
     // DB切断
     db.close();
