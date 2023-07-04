@@ -1,0 +1,70 @@
+﻿<MudPaper Height="180px" Class="pl-2 pr-3 py-3">
+    <MudGrid>
+        <MudItem xs="12" sm="4">
+            <div class="d-flex gap-1 flex-column">
+                <PokeImageView PokeNo="@PokeNo" />
+                <MudText Typo="Typo.body2">@PokeName</MudText>
+            </div>
+        </MudItem>
+        <MudItem xs="12" sm="8">
+            <div class="d-flex gap-2 mb-1">
+                <MudText  Typo="Typo.body2">H</MudText>
+                <MudSlider Size="Size.Small" Value="@H" Variant="Variant.Filled" Min="1" Max="255" Color="@Color" />
+                <MudText Typo="Typo.body2" Align="Align.Right" Style="width: 40px;">@H</MudText>
+            </div>
+            <div class="d-flex gap-2 mb-1">
+                <MudText Typo="Typo.body2">A</MudText>
+                <MudSlider Size="Size.Small" Value="@A" Variant="Variant.Filled" Min="1" Max="255" Color="@Color" />
+                <MudText Typo="Typo.body2" Align="Align.Right" Style="width: 40px;">@A</MudText>
+            </div>
+            <div class="d-flex gap-2 mb-1">
+                <MudText Typo="Typo.body2">B</MudText>
+                <MudSlider Size="Size.Small" Value="@B" Variant="Variant.Filled" Min="1" Max="255" Color="@Color" />
+                <MudText Typo="Typo.body2" Align="Align.Right" Style="width: 40px;">@B</MudText>
+            </div>
+            <div class="d-flex gap-2 mb-1">
+                <MudText Typo="Typo.body2">C</MudText>
+                <MudSlider Size="Size.Small" Value="@C" Variant="Variant.Filled" Min="1" Max="255" Color="@Color" />
+                <MudText Typo="Typo.body2" Align="Align.Right" Style="width: 40px;">@C</MudText>
+            </div>
+            <div class="d-flex gap-2 mb-1">
+                <MudText Typo="Typo.body2">D</MudText>
+                <MudSlider Size="Size.Small" Value="@D" Variant="Variant.Filled" Min="1" Max="255" Color="@Color" />
+                <MudText Typo="Typo.body2" Align="Align.Right" Style="width: 40px;">@D</MudText>
+            </div>
+            <div class="d-flex gap-2 mb-1">
+                <MudText Typo="Typo.body2">S</MudText>
+                <MudSlider Size="Size.Small" Value="@S" Variant="Variant.Filled" Min="1" Max="255" Color="@Color" />
+                <MudText Typo="Typo.body2" Align="Align.Right" Style="width: 40px;">@S</MudText>
+            </div>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
+@code{
+    [Parameter]
+    public long PokeNo { get; set; }
+
+    [Parameter]
+    public string PokeName { get; set; } = string.Empty;
+
+    [Parameter]
+    public long H { get; set; }
+
+    [Parameter]
+    public long A { get; set; }
+
+    [Parameter]
+    public long B { get; set; }
+
+    [Parameter]
+    public long C { get; set; }
+
+    [Parameter]
+    public long D { get; set; }
+
+    [Parameter]
+    public long S { get; set; }
+
+    [Parameter]
+    public Color Color { get; set; }
+}
